@@ -1,0 +1,17 @@
+<%= form_for @achievement do |f| %> 
+    
+    <%= f.label :title, "Title"%> 
+    <%= f.text_field :title %> 
+    
+    <%= f.label :description, "Description"%> 
+    <%= f.text_field :description %> 
+    
+    <%= f.label :featured, "Featured" %>
+    <%= f.check_box :featured %> 
+    
+    <%= f.label :privacy, "Private" %> 
+    <%= f.select :privacy, Achievement.privacies.keys.map {|privacy| [privacy.humanize, privacy]} %> 
+    
+    <%= f.submit "Submit" %>
+    
+<% end %>  
