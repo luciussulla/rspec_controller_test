@@ -1,7 +1,12 @@
 require 'rails_helper'
-feature 'create new achievement' do 
-    
+require_relative '../support/login_form'
+
+feature 'create new achievement' do
+    let(:user) { FactoryGirl.create(:user)}
+    let(:login_form) { LoginForm.new }
+
     scenario 'can create new achievement' do
+        login_form.visit_page.login_as(user)
         
         visit('/')
         click_on "new achievement"

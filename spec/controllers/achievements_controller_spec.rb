@@ -125,8 +125,8 @@ RSpec.describe AchievementsController, type: :controller do
             end 
         end 
         context "user owner of the resouce" do 
-            
             let(:achievement) {FactoryGirl.create(:achievement, user: user)}
+            
             describe "authorized user" do
                 describe "POST create" do 
                     context "valid data" do 
@@ -141,7 +141,6 @@ RSpec.describe AchievementsController, type: :controller do
                             }.to change(Achievement, :count).by(1)
                         end 
                     end 
-                    
                     context 'invalid data' do 
                         let(:invalid_data) {FactoryGirl.attributes_for(:achievement, title: "")}
                         it 'does not create achievement' do 

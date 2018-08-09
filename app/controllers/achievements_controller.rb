@@ -50,11 +50,9 @@ class AchievementsController < ApplicationController
             flash[:notice] = "failure"
             redirect_to root_url
         end 
-        
     end 
     
     private 
-    
     def achievement_params
         params.require(:achievement).permit(:title, :description, :privacy, :featured)
     end  
